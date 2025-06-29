@@ -3,6 +3,7 @@
 
 #include "seat/seat.h"
 
+/*-------------------------------------------------*/
 /* Just imagine we don't have access to this class */
 class Entity {
 public:
