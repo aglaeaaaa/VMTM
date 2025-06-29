@@ -1,41 +1,37 @@
 #include <iostream>
+#include <algorithm>
+
 #include "seat/seat.h"
 
+/* Just imagine we don't have access to this class */
 class Entity {
 public:
 	int health = 100;
 	virtual void Damage(int amount) {
-		if (health > 0)
-			health -= amount;
-		else
-			health = 0;
+		if (health <= 0)
+			return;
+
+		health = std::max(health - amount, 0);
 		std::cout << health << std::endl;
 	}
-
-	virtual void Respawn() {
-		health = 100;
-	}
 };
+/*-------------------------------------------------*/
 
-class Player : public Entity {};
-
-
-
-typedef void(__thiscall *Player__Damage)(void*, int);
-Player__Damage Player__Damage__o;
+typedef void(__thiscall *Entity__Damage)(void*, int);
+Entity__Damage Entity__Damage__o;
 void hookedDamage(void* thisptr, int amount) {
 	amount = 0;
-	Player__Damage__o(thisptr, amount);
+	Entity__Damage__o(thisptr, amount);
 }
 
 int main() {
-	Player* pPlayer = new Player();
+	Entity* pEntity = new Entity();
 
-	Seat seat;
+	Entity__Damage__o = (Entity__Damage)seat::Hook(pEntity, 0, (void*)hookedDamage);
 
-	Player__Damage__o = (Player__Damage)seat.Hook(pPlayer, 0, (void*)hookedDamage);
-
-	pPlayer->Damage(25);
+	std::cout << "We've hooked the Entity::Damage function and set the damage parameter to 0 before calling original" << std::endl;
+	pEntity->Damage(1000);
 
 	return 0;
 }
+
