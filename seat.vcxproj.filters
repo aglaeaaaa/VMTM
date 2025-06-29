@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="seat">
+      <UniqueIdentifier>{a5a9b700-ea59-403a-901f-dbc6b777bcae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="seat\vmt">
+      <UniqueIdentifier>{3e0aad3b-323f-4788-9cb9-698b3c84ba5f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="seat\seat.cpp">
+      <Filter>seat</Filter>
+    </ClCompile>
+    <ClCompile Include="seat\vmt\vmt.cpp">
+      <Filter>seat\vmt</Filter>
+    </ClCompile>
+    <ClCompile Include="example.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="seat\seat.h">
+      <Filter>seat</Filter>
+    </ClInclude>
+    <ClInclude Include="seat\vmt\vmt.h">
+      <Filter>seat\vmt</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

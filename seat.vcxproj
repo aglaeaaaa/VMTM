@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="example.cpp" />
+    <ClCompile Include="seat\seat.cpp" />
+    <ClCompile Include="seat\vmt\vmt.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="seat\seat.h" />
+    <ClInclude Include="seat\vmt\vmt.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -130,13 +139,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="example.cpp" />
-    <ClCompile Include="seat\seat.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="seat\seat.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

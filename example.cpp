@@ -27,11 +27,12 @@ void hookedDamage(void* thisptr, int amount) {
 int main() {
 	Entity* pEntity = new Entity();
 
-	Entity__Damage__o = (Entity__Damage)seat::Hook(pEntity, 0, (void*)hookedDamage);
+	VMT* vmt = VMTM::Load(pEntity);
+	Entity__Damage__o = (Entity__Damage)vmt->Hook(0, hookedDamage);
 
-	std::cout << "We've hooked the Entity::Damage function and set the damage parameter to 0 before calling original" << std::endl;
 	pEntity->Damage(1000);
+
+	// pEntity->health remains 100 because the hook sets the `amount` parameter to 0 before the damage function runs.
 
 	return 0;
 }
-
