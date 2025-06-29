@@ -3,8 +3,6 @@
 <p align="center"><em>a vmt swapping library</em></p>
 
 
-Lib [here](https://github.com/aglaeaaaa/seat/tree/master/seat/seat).
-
 <h2 align="center">usage</h2>
 
 Example:
@@ -20,7 +18,12 @@ void hookedDamage(void* thisptr, int amount) {
 
 int main() {
     // pEntity = heap allocated object of which you want to hook a function.
-    Entity__Damage__o = (Entity__Damage)seat::Hook(pEntity, 0, (void*)hookedDamage);
+
+    // Setting up the hooking system
+    VMT* vmt = VMTM::Load(pEntity);
+
+    // Hooking @ index 0
+    Entity__Damage__o = (Entity__Damage)vmt->Hook(0, hookedDamage);
 
     return 0;
 }
