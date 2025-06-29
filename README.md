@@ -1,4 +1,4 @@
-<h1 align="center">seat</h1>
+<h1 align="center">VMTM</h1>
 
 <p align="center"><em>a vmt swapping library</em></p>
 
