@@ -28,4 +28,4 @@ int main() {
     return 0;
 }
 ```
-Check [this](https://github.com/aglaeaaaa/seat/blob/master/seat/example.cpp) out if youre still confused.
+Check [this](https://github.com/aglaeaaaa/seat/blob/master/example.cpp) out if youre still confused.
